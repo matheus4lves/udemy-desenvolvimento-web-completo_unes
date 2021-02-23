@@ -15,8 +15,7 @@ module.exports = {
         // in you phone's browser type: <yourComputerLocalIp>:9000
         port: 9000,
         hot: true, // enable HMR
-        // watchContentBase: true, // trigger a full page reload
-        index: './app/index.html',
+        //index: './app/index.html', what is it for?
         open: {
             app: ['brave-browser', '--incognito'],
         },
@@ -30,7 +29,7 @@ module.exports = {
         rules: [
             {
                 test: /\.html$/,
-                use: ['raw-loader'],
+                type: 'asset/source', // replaces <use: raw-loader>
             },
             {
                 test: /\.css$/,
