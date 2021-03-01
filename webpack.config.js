@@ -14,7 +14,7 @@ module.exports = {
     devtool: 'inline-source-map',
 
     devServer: {
-        contentBase: './app',
+        contentBase: path.join(__dirname, 'app'),
         // enable HMR
         hot: true,
 
