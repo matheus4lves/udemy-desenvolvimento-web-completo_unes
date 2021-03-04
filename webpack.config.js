@@ -1,12 +1,16 @@
 // to access built in plugins
 const webpack = require('webpack');
-
 const path = require('path');
 
 module.exports = {
-    entry: './app/assets/scripts/index.js',
+    entry: {
+        index: './app/assets/scripts/index.js',
+        quemSomos: './app/assets/scripts/quemSomos.js',
+        contato: './app/assets/scripts/contato.js',
+    },
+
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'app'),
     },
 
@@ -15,6 +19,8 @@ module.exports = {
 
     devServer: {
         contentBase: path.join(__dirname, 'app'),
+        watchContentBase: true,
+        index: 'index.html',
         // enable HMR
         hot: true,
 
