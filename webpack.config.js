@@ -1,6 +1,13 @@
 // to access built in plugins
 const webpack = require('webpack');
 const path = require('path');
+const postcssPlugins = [
+    require('postcss-import'),
+    require('postcss-mixins'),
+    require('postcss-nested'),
+    require('postcss-simple-vars'),
+    require('autoprefixer'),
+]
 
 module.exports = {
     entry: {
@@ -19,7 +26,9 @@ module.exports = {
 
     devServer: {
         contentBase: path.join(__dirname, 'app'),
-        watchContentBase: true,
+        before: function(app, server) {
+            server._watch('./app/**/*.html')
+        },
         index: 'index.html',
         // enable HMR
         hot: true,
@@ -39,20 +48,24 @@ module.exports = {
 
         //index: './app/index.html', what is it for?
         open: {
-            app: ['brave-browser', '--incognito'],
+            app: ['/opt/firefox-84.0b4/firefox/firefox', '--private-window'],
         },
     },
     module: {
         rules: [
             {
-                test: /\.html$/,
+                test: /\.html$/i,
 
                 // replaces <use: raw-loader>
                 type: 'asset/source',
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                test: /\.css$/i,
+                use: ['style-loader', {loader: 'css-loader', options: {url: false,}}, {loader: 'postcss-loader', options: {postcssOptions: {plugins: postcssPlugins}}}],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: 'asset/resource'
             },
         ],
     },
