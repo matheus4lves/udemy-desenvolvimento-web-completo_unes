@@ -1,0 +1,9 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color: $mainBlack;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
