@@ -1,15 +1,34 @@
 body {
     font-family: 'Times New Roman', Times, serif;
+    font-size: 100%;
     color: $mainBlack;
-
-    background-image: url("/assets/images/fundo2.png");
-
-    @mixin atLarge {
-        background-image: url("/assets/images/fundo.png");
-    }
 }
 
 img {
     max-width: 100%;
     height: auto;
+}
+
+p {
+    text-align: justify;
+}
+
+h1 {
+    font-size: 1.8em;
+
+    @mixin atSmall {
+        font-size: 2em;
+    }
+}
+
+h2 {
+    font-size: 1.2em;
+
+    @mixin atSmall {
+        font-size: 1.5em;
+    }
+}
+
+footer {
+    text-align: center;
 }

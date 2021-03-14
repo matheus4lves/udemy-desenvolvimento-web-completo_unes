@@ -1,0 +1,9 @@
+.back-image {
+    background-image: url("/assets/images/fundo2.png");
+
+    &--main {
+        @mixin atLarge {
+            background-image: url("/assets/images/fundo.png");
+        }
+    }
+}
