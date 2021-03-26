@@ -21,8 +21,8 @@ module.exports = {
         path: path.resolve(__dirname, 'app'),
     },
 
-    // Tell me exactly where an error has occurred
-    devtool: 'inline-source-map',
+    // It yields the best quality SourceMaps for development.
+    devtool: 'eval-source-map',
 
     devServer: {
         contentBase: path.join(__dirname, 'app'),
