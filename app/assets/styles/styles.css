@@ -4,4 +4,4 @@
 @import "base/_global.css";
 @import "modules/_wrapper.css";
 @import "modules/_back-image.css";
-@import "modules/_links.css";
+@import 'modules/_primary-nav.css';
